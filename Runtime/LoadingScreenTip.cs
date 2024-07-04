@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace HexTecGames.TransitionSystem
 {
-	[CreateAssetMenu(menuName = "HexTecGames/TransitionSystem/LoadingScreenTip")]
-	public class LoadingScreenTip : ScriptableObject
-	{
+    [CreateAssetMenu(menuName = "HexTecGames/TransitionSystem/LoadingScreenTip")]
+    public class LoadingScreenTip : ScriptableObject
+    {
         public Sprite Sprite
         {
             get

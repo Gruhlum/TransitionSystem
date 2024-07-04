@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 namespace HexTecGames.TransitionSystem
 {
-	public class LoadingScreenTipDisplay : MonoBehaviour
-	{
+    public class LoadingScreenTipDisplay : MonoBehaviour
+    {
         [SerializeField] private List<LoadingScreenTip> loadingScreenTips = default;
         [SerializeField] private TMP_Text descriptionText = default;
         [SerializeField] private Image descriptionImg = default;

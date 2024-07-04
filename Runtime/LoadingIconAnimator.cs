@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace HexTecGames.TransitionSystem
 {
-	public class LoadingIconAnimator : MonoBehaviour
-	{
+    public class LoadingIconAnimator : MonoBehaviour
+    {
         [SerializeField] private LoadingScreen loadingScreen = default;
         [Space]
         [SerializeField] private Animator animator = default;
@@ -18,7 +18,7 @@ namespace HexTecGames.TransitionSystem
             loadingScreen = FindObjectOfType<LoadingScreen>();
         }
 
-        void OnEnable()
+        private void OnEnable()
         {
             StartCoroutine(PlayIconSlowdown());
         }

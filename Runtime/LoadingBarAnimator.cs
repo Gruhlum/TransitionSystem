@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 namespace HexTecGames.TransitionSystem
 {
-	public class LoadingBarAnimator : MonoBehaviour
-	{
+    public class LoadingBarAnimator : MonoBehaviour
+    {
         [SerializeField] private LoadingScreen loadingScreen = default;
         [SerializeField] private Slider progressSlider = default;
 
@@ -16,7 +16,7 @@ namespace HexTecGames.TransitionSystem
             loadingScreen = FindObjectOfType<LoadingScreen>();
         }
 
-        void OnEnable()
+        private void OnEnable()
         {
             StartCoroutine(UpdateProgressBar());
         }

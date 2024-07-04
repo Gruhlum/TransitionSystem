@@ -11,7 +11,6 @@ namespace HexTecGames.TransitionSystem
     public class LoadingScreen : MonoBehaviour
     {
         [SerializeField] private GameObject backgroundGO = default;
-
         [SerializeField] private float minDuration = default;
 
         public float Progress
@@ -26,9 +25,6 @@ namespace HexTecGames.TransitionSystem
             }
         }
         private float progress;
-
-        private AsyncOperation loadingProgress;
-        private float timer;
         public bool IsSlowingDown
         {
             get
@@ -40,9 +36,11 @@ namespace HexTecGames.TransitionSystem
                 isSlowingDown = value;
             }
         }
-
-
         private bool isSlowingDown;
+
+        private AsyncOperation loadingProgress;
+        private float timer;
+
 
         public void LoadScene(int index)
         {
@@ -52,7 +50,6 @@ namespace HexTecGames.TransitionSystem
             StartCoroutine(CheckForProgress());
             StartCoroutine(CalculateSlowdown());
         }
-
         private IEnumerator CalculateSlowdown()
         {
             while (true)
