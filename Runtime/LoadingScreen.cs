@@ -41,12 +41,18 @@ namespace HexTecGames.TransitionSystem
         private AsyncOperation loadingProgress;
         private float timer;
 
-
+        public void LoadScene(string name)
+        {
+            LoadScene(SceneManager.LoadSceneAsync(name));
+        }
         public void LoadScene(int index)
         {
+            LoadScene(SceneManager.LoadSceneAsync(index));
+        }
+        private void LoadScene(AsyncOperation progress)
+        {
             backgroundGO.SetActive(true);
-            loadingProgress = SceneManager.LoadSceneAsync(index);
-            loadingProgress.allowSceneActivation = false;
+            progress.allowSceneActivation = false;
             StartCoroutine(CheckForProgress());
             StartCoroutine(CalculateSlowdown());
         }

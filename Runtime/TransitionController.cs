@@ -35,15 +35,18 @@ namespace HexTecGames.TransitionSystem
             {
                 yield return null;
             }
-
-            loadingScreen.LoadScene(GetSceneIndex());
+            if (sceneSelectType == SceneSelectType.Name)
+            {
+                loadingScreen.LoadScene(sceneName);
+            }
+            else loadingScreen.LoadScene(GetSceneIndex());
         }
 
         private bool CheckIfTransitionIsFinished()
         {
             foreach (var tweenPlayer in tweenPlayers)
             {
-                if (tweenPlayer.enabled)
+                if (tweenPlayer.IsActive)
                 {
                     return false;
                 }
@@ -54,8 +57,6 @@ namespace HexTecGames.TransitionSystem
         {
             switch (sceneSelectType)
             {
-                case SceneSelectType.Name:
-                    return GetSceneIndex(sceneName);
                 case SceneSelectType.Index:
                     return sceneIndex;
                 case SceneSelectType.Next:
@@ -65,10 +66,6 @@ namespace HexTecGames.TransitionSystem
                 default:
                     return 0;
             }
-        }
-        private int GetSceneIndex(string name)
-        {
-            return SceneManager.GetSceneByName(name).buildIndex;
         }
         private int GetNextScene()
         {
