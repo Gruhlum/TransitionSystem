@@ -23,7 +23,18 @@ namespace HexTecGames.TransitionSystem
         {
             StartCoroutine(PlayTransition());
         }
-
+        public void Activate(TweenPlayerBase tweenPlayer)
+        {
+            StartCoroutine(PlayTransition(tweenPlayer));
+        }
+        private IEnumerator PlayTransition(TweenPlayerBase tweenPlayer)
+        {
+            while (tweenPlayer.IsActive)
+            {
+                yield return null;
+            }
+            yield return PlayTransition();
+        }
         private IEnumerator PlayTransition()
         {
             foreach (var tweenPlayer in tweenPlayers)

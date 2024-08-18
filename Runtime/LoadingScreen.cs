@@ -51,6 +51,7 @@ namespace HexTecGames.TransitionSystem
         }
         private void LoadScene(AsyncOperation progress)
         {
+            loadingProgress = progress;
             backgroundGO.SetActive(true);
             progress.allowSceneActivation = false;
             StartCoroutine(CheckForProgress());
