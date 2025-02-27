@@ -6,5 +6,8 @@
   "unity": "2022.1",
   "author": {
     "name": "HexTecGames"
+  },
+  "dependencies": {
+    "com.hextecgames.easefunctions": "1.0.0"
   }
 }

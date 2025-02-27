@@ -9,7 +9,8 @@ namespace HexTecGames.TransitionSystem
 {
     public class TransitionController : MonoBehaviour
     {
-        [SerializeField] private List<TweenPlayerBase> tweenPlayers = default;
+        //[SerializeField] private List<TweenPlayerBase> tweenPlayers = default;
+        [SerializeField] private TransitionAnimator transitionAnimator = default;
 
         public enum SceneSelectType { Name, Index, Next, Previous }
 
@@ -19,33 +20,35 @@ namespace HexTecGames.TransitionSystem
 
         [SerializeField] private LoadingScreen loadingScreen = default;
 
+        [SerializeField] private float waitTime = default;
+
         public void Activate()
         {
             StartCoroutine(PlayTransition());
         }
-        public void Activate(TweenPlayerBase tweenPlayer)
-        {
-            StartCoroutine(PlayTransition(tweenPlayer));
-        }
-        private IEnumerator PlayTransition(TweenPlayerBase tweenPlayer)
-        {
-            while (tweenPlayer.IsActive)
-            {
-                yield return null;
-            }
-            yield return PlayTransition();
-        }
+        //public void Activate(TweenPlayerBase tweenPlayer)
+        //{
+        //    StartCoroutine(PlayTransition(tweenPlayer));
+        //}
+        //private IEnumerator PlayTransition(TweenPlayerBase tweenPlayer)
+        //{
+        //    while (tweenPlayer.IsActive)
+        //    {
+        //        yield return null;
+        //    }
+        //    yield return PlayTransition();
+        //}
         private IEnumerator PlayTransition()
         {
-            foreach (var tweenPlayer in tweenPlayers)
-            {
-                tweenPlayer.Play(false);
-            }
+            //foreach (var tweenPlayer in tweenPlayers)
+            //{
+            //    tweenPlayer.Play(false);
+            //}
 
-            while (!CheckIfTransitionIsFinished())
-            {
-                yield return null;
-            }
+            transitionAnimator.Play();
+
+            yield return new WaitForSeconds(waitTime);
+
             if (sceneSelectType == SceneSelectType.Name)
             {
                 loadingScreen.LoadScene(sceneName);
@@ -53,17 +56,17 @@ namespace HexTecGames.TransitionSystem
             else loadingScreen.LoadScene(GetSceneIndex());
         }
 
-        private bool CheckIfTransitionIsFinished()
-        {
-            foreach (var tweenPlayer in tweenPlayers)
-            {
-                if (tweenPlayer.IsActive)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+        //private bool CheckIfTransitionIsFinished()
+        //{
+        //    foreach (var tweenPlayer in tweenPlayers)
+        //    {
+        //        if (tweenPlayer.IsActive)
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    return true;
+        //}
         private int GetSceneIndex()
         {
             switch (sceneSelectType)
