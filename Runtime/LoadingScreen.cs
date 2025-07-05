@@ -1,10 +1,6 @@
-using HexTecGames.Basics.UI;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace HexTecGames.TransitionSystem
 {
@@ -40,6 +36,7 @@ namespace HexTecGames.TransitionSystem
 
         private AsyncOperation loadingProgress;
         private float timer;
+
 
         public void LoadScene(string name)
         {

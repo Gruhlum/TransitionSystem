@@ -1,7 +1,6 @@
+using System.Collections;
 using HexTecGames.Basics;
 using HexTecGames.TweenLib;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,18 +8,16 @@ namespace HexTecGames.TransitionSystem
 {
     public class TransitionController : MonoBehaviour
     {
-        //[SerializeField] private List<TweenPlayerBase> tweenPlayers = default;
         [SerializeField] private TransitionAnimator transitionAnimator = default;
 
         public enum SceneSelectType { Name, Index, Next, Previous }
 
-        [SerializeField] private SceneSelectType sceneSelectType = default;
+        [Space]
+        [SerializeField] private SceneSelectType sceneSelectType = SceneSelectType.Name;
         [SerializeField, DrawIf(nameof(sceneSelectType), SceneSelectType.Name)] private string sceneName = default;
         [SerializeField, DrawIf(nameof(sceneSelectType), SceneSelectType.Index)] private int sceneIndex = default;
 
         [SerializeField] private LoadingScreen loadingScreen = default;
-
-        [SerializeField] private float waitTime = default;
 
         public void Activate()
         {
@@ -45,10 +42,10 @@ namespace HexTecGames.TransitionSystem
             //    tweenPlayer.Play(false);
             //}
 
-            transitionAnimator.Play();
-
-            yield return new WaitForSeconds(waitTime);
-
+            if (transitionAnimator != null)
+            {
+                yield return transitionAnimator.Play();
+            }
             if (sceneSelectType == SceneSelectType.Name)
             {
                 loadingScreen.LoadScene(sceneName);
