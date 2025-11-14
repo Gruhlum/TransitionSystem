@@ -10,5 +10,12 @@
   "dependencies": {
     "com.hextecgames.easefunctions": "1.0.0"
   },
-  "hideInEditor": false
+  "hideInEditor": false,
+  "samples": [
+    {
+      "displayName": "Example 1",
+      "description": "Example 1",
+      "path": "Samples/Example 1"
+    }
+  ]
 }
