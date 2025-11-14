@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace HexTecGames.TransitionSystem
 {
-    public class TransitionController : MonoBehaviour
+    public class TransitionController : AdvancedBehaviour
     {
         [SerializeField] private TransitionAnimator transitionAnimator = default;
 

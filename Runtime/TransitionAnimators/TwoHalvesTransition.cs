@@ -14,7 +14,7 @@ namespace HexTecGames.TransitionSystem
         [SerializeField] private EasingType animationType = default;
         [SerializeField] private FunctionType curve = default;
         [SerializeField] private float speed = 1;
-
+        [SerializeField] private bool reverse = default;
         [Space]
         [SerializeField] private bool playOnStart = default;
 
@@ -22,7 +22,7 @@ namespace HexTecGames.TransitionSystem
         {
             if (playOnStart)
             {
-                Play();
+                StartCoroutine(Play());
             }
         }
 
@@ -38,18 +38,22 @@ namespace HexTecGames.TransitionSystem
             Vector2 startPos = rectT.position;
             //leftT.anchoredPosition += new Vector2(leftT.rect.width * multiplier, 0);
             Vector2 endPos = rectT.anchoredPosition + new Vector2(leftT.rect.width * multiplier, 0);
-            float timer = 0;
+            float timer = 0f;
 
             System.Func<float, float> function = EaseFunction.GetFunction(animationType, curve);
-            while (timer < 1)
+            while (timer < 1f)
             {
                 timer += Time.deltaTime * speed;
-                timer = Mathf.Min(timer, 1);
-                float value = function.Invoke(timer);
+                timer = Mathf.Min(timer, 1f);
+                float value;
+                if (reverse)
+                {
+                    value = function.Invoke(1 - timer);
+                }
+                else value = function.Invoke(timer);
                 rectT.anchoredPosition = Vector3.Lerp(startPos, endPos, value);
                 yield return null;
             }
-
         }
     }
 }

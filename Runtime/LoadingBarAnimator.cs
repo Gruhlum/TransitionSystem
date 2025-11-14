@@ -1,4 +1,5 @@
 using System.Collections;
+using HexTecGames.EaseFunctions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ namespace HexTecGames.TransitionSystem
     {
         [SerializeField] private LoadingScreen loadingScreen = default;
         [SerializeField] private Slider progressSlider = default;
+        [SerializeField] private EaseFunction fillEasing = new EaseFunction(EasingType.EaseOut, FunctionType.Quad);
 
         private void Reset()
         {
@@ -24,7 +26,7 @@ namespace HexTecGames.TransitionSystem
         {
             while (true)
             {
-                progressSlider.value = loadingScreen.Progress + 0.1f;
+                progressSlider.value = fillEasing.GetValue(loadingScreen.Progress + 0.1f);
 
                 while (loadingScreen.IsSlowingDown)
                 {
@@ -32,9 +34,9 @@ namespace HexTecGames.TransitionSystem
                 }
                 if (Random.Range(0f, 1f) > 0.1f)
                 {
-                    yield return new WaitForSeconds(Random.Range(0.04f, 0.08f));
+                    yield return new WaitForSeconds(Random.Range(0.04f, 0.06f));
                 }
-                else yield return new WaitForSeconds(Random.Range(0.2f, 0.4f));
+                else yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
             }
         }
     }

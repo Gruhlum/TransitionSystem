@@ -6,8 +6,9 @@ namespace HexTecGames.TransitionSystem
 {
     public class LoadingScreen : MonoBehaviour
     {
-        [SerializeField] private GameObject backgroundGO = default;
         [SerializeField] private float minDuration = default;
+        [SerializeField] private float startDelay = 0.5f;
+        [SerializeField] private float closeDelay = 0.1f;
 
         public float Progress
         {
@@ -49,7 +50,7 @@ namespace HexTecGames.TransitionSystem
         private void LoadScene(AsyncOperation progress)
         {
             loadingProgress = progress;
-            backgroundGO.SetActive(true);
+            gameObject.SetActive(true);
             progress.allowSceneActivation = false;
             StartCoroutine(CheckForProgress());
             StartCoroutine(CalculateSlowdown());
@@ -71,6 +72,7 @@ namespace HexTecGames.TransitionSystem
         }
         private IEnumerator CheckForProgress()
         {
+            yield return new WaitForSeconds(startDelay);
             while (Progress < 0.9f)
             {
                 yield return null;
@@ -78,7 +80,7 @@ namespace HexTecGames.TransitionSystem
                 timer += Time.deltaTime;
                 Progress = CalculateProgress();
             }
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(closeDelay);
             loadingProgress.allowSceneActivation = true;
         }
         private float CalculateProgress()

@@ -1,6 +1,6 @@
 {
   "name": "com.hextecgames.transitionsystem",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "TransitionSystem",
   "description": "My Package",
   "unity": "2022.1",
@@ -9,5 +9,6 @@
   },
   "dependencies": {
     "com.hextecgames.easefunctions": "1.0.0"
-  }
+  },
+  "hideInEditor": false
 }
