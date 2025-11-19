@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7455105218984344920}
   - component: {fileID: 2812698149240191389}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: ProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,8 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd51d96f56895c40b3e6db492688d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingScreen: {fileID: 0}
+  loadingScreen: {fileID: 2331115758642231760}
   progressSlider: {fileID: 2812698149240191389}
+  fillEasing:
+    easingType: 1
+    functionType: 1
 --- !u!114 &2812698149240191389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +197,7 @@ GameObject:
   - component: {fileID: 3131242425279036385}
   - component: {fileID: 388505799068968923}
   m_Layer: 5
-  m_Name: FadingScreen
+  m_Name: LoadingScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,8 +236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d43566f43af3546ad9a296c642af3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundGO: {fileID: 4300893369928448232}
-  minDuration: 5
+  minDuration: 12
+  startDelay: 1
+  closeDelay: 0.1
 --- !u!222 &5106844326340475472
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -256,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -520,7 +524,6 @@ GameObject:
   - component: {fileID: 7084811185541562177}
   - component: {fileID: 7589393228969588084}
   - component: {fileID: 85347155498832026}
-  - component: {fileID: 6391242529109542976}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -559,9 +562,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a0ce98c39c06814db63dec39f177699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingScreen: {fileID: 0}
-  animator: {fileID: 6391242529109542976}
-  animationSpeedParameterName: speedMultiplier
+  loadingScreen: {fileID: 2331115758642231760}
+  img: {fileID: 85347155498832026}
+  frameWaitTime: 0.2
+  sprites:
+  - {fileID: -256667155, guid: b78afc7a850abe049beb7d20e8904090, type: 3}
+  - {fileID: 284701354, guid: b78afc7a850abe049beb7d20e8904090, type: 3}
 --- !u!222 &7589393228969588084
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -600,27 +606,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &6391242529109542976
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7086136256683749503}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3a49c1a851c09234394cb2c0329ab15e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7381170830603929286
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +662,7 @@ MonoBehaviour:
   sceneSelectType: 0
   sceneName: TransitionTest_2
   sceneIndex: 0
-  loadingScreen: {fileID: 0}
+  loadingScreen: {fileID: 2331115758642231760}
 --- !u!223 &4770161178176601284
 Canvas:
   m_ObjectHideFlags: 0

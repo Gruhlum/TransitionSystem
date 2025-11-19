@@ -61,8 +61,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: -564854313
+  m_SortingOrder: 300
   m_TargetDisplay: 0
 --- !u!114 &4211457081246438731
 MonoBehaviour:
@@ -118,9 +118,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftT: {fileID: 7604892886903829070}
   rightT: {fileID: 2560068667729459447}
-  animationType: 0
-  curve: 1
+  animationType: 1
+  curve: 3
   speed: 1
+  reverse: 0
   playOnStart: 0
 --- !u!1 &8398408839876856215
 GameObject:

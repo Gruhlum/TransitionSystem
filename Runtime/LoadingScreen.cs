@@ -63,9 +63,9 @@ namespace HexTecGames.TransitionSystem
                 {
                     yield return new WaitForSeconds(0.1f);
                 }
-                isSlowingDown = true;
-                yield return new WaitForSeconds(Random.Range(0.2f, 1.8f));
-                isSlowingDown = false;
+                IsSlowingDown = true;
+                yield return new WaitForSeconds(Random.Range(0.5f, 2f));
+                IsSlowingDown = false;
                 yield return new WaitForSeconds(Random.Range(0.5f, 3f));
             }
 

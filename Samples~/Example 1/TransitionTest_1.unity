@@ -247,17 +247,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7296356193018750826, guid: 991c85baf9d7b1948845666fadef7ca2, type: 3}
   m_PrefabInstance: {fileID: 145158042}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &435686030 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2331115758642231760, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-  m_PrefabInstance: {fileID: 601724693}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d43566f43af3546ad9a296c642af3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &490375027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -563,29 +552,9 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 931849911374366291, guid: e0e8f9133760d0a4ea11bbcb7eefec83, type: 3}
-      propertyPath: m_SortingOrder
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 931849911374366291, guid: e0e8f9133760d0a4ea11bbcb7eefec83, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -564854313
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282124628928942065, guid: e0e8f9133760d0a4ea11bbcb7eefec83, type: 3}
-      propertyPath: curve
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282124628928942065, guid: e0e8f9133760d0a4ea11bbcb7eefec83, type: 3}
-      propertyPath: animationType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2584505671847651368, guid: e0e8f9133760d0a4ea11bbcb7eefec83, type: 3}
       propertyPath: m_Name
       value: TwoHalvesTransition
-      objectReference: {fileID: 0}
-    - target: {fileID: 2584505671847651368, guid: e0e8f9133760d0a4ea11bbcb7eefec83, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5830400709164726013, guid: e0e8f9133760d0a4ea11bbcb7eefec83, type: 3}
       propertyPath: m_Pivot.x
@@ -771,73 +740,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2331115758642231760, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-      propertyPath: closeDelay
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2331115758642231760, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-      propertyPath: startDelay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2331115758642231760, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-      propertyPath: minDuration
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 2812698149240191389, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-      propertyPath: m_MaxValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3188822895436693163, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-      propertyPath: loadingScreen
-      value: 
-      objectReference: {fileID: 435686030}
     - target: {fileID: 3188822895436693163, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
       propertyPath: transitionAnimator
       value: 
       objectReference: {fileID: 562125859}
-    - target: {fileID: 3751628684459720113, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-      propertyPath: m_Name
-      value: ProgressBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300893369928448232, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-      propertyPath: m_Name
-      value: LoadingScreen
-      objectReference: {fileID: 0}
     - target: {fileID: 4770161178176601284, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 6246611733552194756, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-      propertyPath: m_Color.b
-      value: 0.08627451
-      objectReference: {fileID: 0}
-    - target: {fileID: 6246611733552194756, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-      propertyPath: m_Color.g
-      value: 0.08627451
-      objectReference: {fileID: 0}
-    - target: {fileID: 6246611733552194756, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-      propertyPath: m_Color.r
-      value: 0.08627451
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084811185541562177, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-      propertyPath: loadingScreen
-      value: 
-      objectReference: {fileID: 435686030}
     - target: {fileID: 7381170830603929286, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
       propertyPath: m_Name
       value: TransitionSystem
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455105218984344920, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-      propertyPath: loadingScreen
-      value: 
-      objectReference: {fileID: 435686030}
-    - target: {fileID: 7455105218984344920, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-      propertyPath: fillEasing.easingType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455105218984344920, guid: ab13bace458c4bf418e968f1e89713a7, type: 3}
-      propertyPath: fillEasing.functionType
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
