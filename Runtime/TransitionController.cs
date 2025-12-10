@@ -19,29 +19,20 @@ namespace HexTecGames.TransitionSystem
 
         [SerializeField] private LoadingScreen loadingScreen = default;
 
+        private bool isActivated;
+
         public void Activate()
         {
+            if (isActivated)
+            {
+                return;
+            }
+            isActivated = true;
             StartCoroutine(PlayTransition());
         }
-        //public void Activate(TweenPlayerBase tweenPlayer)
-        //{
-        //    StartCoroutine(PlayTransition(tweenPlayer));
-        //}
-        //private IEnumerator PlayTransition(TweenPlayerBase tweenPlayer)
-        //{
-        //    while (tweenPlayer.IsActive)
-        //    {
-        //        yield return null;
-        //    }
-        //    yield return PlayTransition();
-        //}
+        
         private IEnumerator PlayTransition()
         {
-            //foreach (var tweenPlayer in tweenPlayers)
-            //{
-            //    tweenPlayer.Play(false);
-            //}
-
             if (transitionAnimator != null)
             {
                 yield return transitionAnimator.Play();
@@ -53,17 +44,6 @@ namespace HexTecGames.TransitionSystem
             else loadingScreen.LoadScene(GetSceneIndex());
         }
 
-        //private bool CheckIfTransitionIsFinished()
-        //{
-        //    foreach (var tweenPlayer in tweenPlayers)
-        //    {
-        //        if (tweenPlayer.IsActive)
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    return true;
-        //}
         private int GetSceneIndex()
         {
             switch (sceneSelectType)
