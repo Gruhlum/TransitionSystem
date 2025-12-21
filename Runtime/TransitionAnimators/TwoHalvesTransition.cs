@@ -14,7 +14,7 @@ namespace HexTecGames.TransitionSystem
         [SerializeField] private EasingType animationType = default;
         [SerializeField] private FunctionType curve = default;
         [SerializeField] private float speed = 1;
-        [SerializeField] private bool reverse = default;
+        [SerializeField] private bool playInReverse = default;
         [Space]
         [SerializeField] private bool playOnStart = default;
 
@@ -22,23 +22,23 @@ namespace HexTecGames.TransitionSystem
         {
             if (playOnStart)
             {
-                StartCoroutine(Play());
+                StartCoroutine(Play(false));
             }
         }
 
-        public override IEnumerator Play()
+        public override IEnumerator Play(bool reverse = false)
         {
-            StartCoroutine(AnimateSide(leftT, 1));
-            StartCoroutine(AnimateSide(rightT, -1));
+            StartCoroutine(AnimateSide(leftT, 1, reverse));
+            StartCoroutine(AnimateSide(rightT, -1, reverse));
 
             yield return new WaitForSeconds(1f / speed);
         }
-        private IEnumerator AnimateSide(RectTransform rectT, float multiplier)
+        private IEnumerator AnimateSide(RectTransform rectT, float multiplier, bool reverse)
         {
-            Vector2 startPos = rectT.position;
-            //leftT.anchoredPosition += new Vector2(leftT.rect.width * multiplier, 0);
-            Vector2 endPos = rectT.anchoredPosition + new Vector2(leftT.rect.width * multiplier, 0);
+            Vector2 startPos = reverse ? rectT.anchoredPosition + new Vector2(leftT.rect.width * multiplier, 0) : rectT.position;
+            Vector2 endPos = reverse ? rectT.position : rectT.anchoredPosition + new Vector2(leftT.rect.width * multiplier, 0);
             float timer = 0f;
+            rectT.anchoredPosition = startPos;
 
             System.Func<float, float> function = EaseFunction.GetFunction(animationType, curve);
             while (timer < 1f)
@@ -46,12 +46,12 @@ namespace HexTecGames.TransitionSystem
                 timer += Time.deltaTime * speed;
                 timer = Mathf.Min(timer, 1f);
                 float value;
-                if (reverse)
+                if (playInReverse)
                 {
                     value = function.Invoke(1 - timer);
                 }
                 else value = function.Invoke(timer);
-                rectT.anchoredPosition = Vector3.Lerp(startPos, endPos, value);
+                rectT.anchoredPosition = Vector3.LerpUnclamped(startPos, endPos, value);
                 yield return null;
             }
         }

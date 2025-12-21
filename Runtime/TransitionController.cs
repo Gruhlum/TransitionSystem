@@ -35,7 +35,7 @@ namespace HexTecGames.TransitionSystem
         {
             if (transitionAnimator != null)
             {
-                yield return transitionAnimator.Play();
+                yield return transitionAnimator.Play(true);
             }
             if (sceneSelectType == SceneSelectType.Name)
             {

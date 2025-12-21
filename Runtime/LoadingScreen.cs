@@ -41,7 +41,11 @@ namespace HexTecGames.TransitionSystem
 
         public void LoadScene(string name)
         {
-            LoadScene(SceneManager.LoadSceneAsync(name));
+            var result = SceneManager.LoadSceneAsync(name);
+            if (result != null)
+            {
+                LoadScene(result);
+            }
         }
         public void LoadScene(int index)
         {
