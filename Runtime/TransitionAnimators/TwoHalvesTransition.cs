@@ -28,10 +28,12 @@ namespace HexTecGames.TransitionSystem
 
         public override IEnumerator Play(bool reverse = false)
         {
+            gameObject.SetActive(true);
             StartCoroutine(AnimateSide(leftT, 1, reverse));
             StartCoroutine(AnimateSide(rightT, -1, reverse));
 
             yield return new WaitForSeconds(1f / speed);
+            gameObject.SetActive(false);
         }
         private IEnumerator AnimateSide(RectTransform rectT, float multiplier, bool reverse)
         {
