@@ -30,7 +30,7 @@ namespace HexTecGames.TransitionSystem
             isActivated = true;
             StartCoroutine(PlayTransition());
         }
-        
+
         private IEnumerator PlayTransition()
         {
             if (transitionAnimator != null)
@@ -39,9 +39,20 @@ namespace HexTecGames.TransitionSystem
             }
             if (sceneSelectType == SceneSelectType.Name)
             {
-                loadingScreen.LoadScene(sceneName);
+                if (loadingScreen == null)
+                {
+                    SceneManager.LoadScene(sceneName);
+                }
+                else loadingScreen.LoadSceneAsync(sceneName);
             }
-            else loadingScreen.LoadScene(GetSceneIndex());
+            else
+            {
+                if (loadingScreen == null)
+                {
+                    SceneManager.LoadScene(GetSceneIndex());
+                }
+                else loadingScreen.LoadSceneAsync(GetSceneIndex());
+            }
         }
 
         private int GetSceneIndex()

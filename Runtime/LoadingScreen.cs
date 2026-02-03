@@ -39,19 +39,19 @@ namespace HexTecGames.TransitionSystem
         private float timer;
 
 
-        public void LoadScene(string name)
+        public void LoadSceneAsync(string name)
         {
             var result = SceneManager.LoadSceneAsync(name);
             if (result != null)
             {
-                LoadScene(result);
+                LoadSceneAsync(result);
             }
         }
-        public void LoadScene(int index)
+        public void LoadSceneAsync(int index)
         {
-            LoadScene(SceneManager.LoadSceneAsync(index));
+            LoadSceneAsync(SceneManager.LoadSceneAsync(index));
         }
-        private void LoadScene(AsyncOperation progress)
+        private void LoadSceneAsync(AsyncOperation progress)
         {
             loadingProgress = progress;
             gameObject.SetActive(true);
